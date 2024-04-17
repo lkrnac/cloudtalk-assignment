@@ -5,6 +5,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { Product } from "./products/products.entity";
 import { ProductsModule } from "./products/products.module";
 import { Review } from "./reviews/reviews.entity";
+import { ReviewsModule } from "./reviews/reviews.module";
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { Review } from "./reviews/reviews.entity";
       synchronize: true,
       autoLoadEntities: true,
     }),
-    ProductsModule
+    ProductsModule,
+    ReviewsModule
   ],
   controllers: [AppController],
   providers: [AppService],
