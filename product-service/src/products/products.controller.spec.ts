@@ -4,6 +4,7 @@ import { ProductsService } from "./products.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Product } from "./products.entity";
 import { ProductsModule } from "./products.module";
+import { Review } from "../reviews/reviews.entity";
 
 const createTestingProduct = (index: number): Product => ({
   name: "car" + index,
@@ -22,7 +23,7 @@ describe('ProductController', () => {
         TypeOrmModule.forRoot({
           type: "sqlite",
           database: ":memory:",
-          entities: [Product],
+          entities: [Product, Review],
           synchronize: true,
         }),
         ProductsModule
