@@ -12,7 +12,7 @@ services:
 
   app:
     build:
-      context: .
+      context: ./product-service
       dockerfile: Dockerfile
     container_name: nest-docker-postgres
     environment:
@@ -22,4 +22,4 @@ services:
     depends_on:
       - db
     volumes:
-      - ./src:/app/src
+      - ./product-service/src:/app/src
