@@ -15,7 +15,7 @@ export class Product {
     @Column()
     price: number;
 
-    @Column()
+    @Column('decimal', { precision: 6, scale: 2 })
     averageRating: number;
 
     @OneToMany(() => Review, review => review.product)
