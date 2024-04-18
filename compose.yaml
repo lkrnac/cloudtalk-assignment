@@ -17,9 +17,20 @@ services:
     container_name: nest-docker-postgres
     environment:
       - PORT=${PORT}
+#      - REDIS_URL=redis://localhost:6379
+      - REDIS_URL=redis://cache
     ports:
       - '3000:3000'
     depends_on:
       - db
     volumes:
       - ./product-service/src:/app/src
+    links:
+      - redis
+
+  redis:
+    image: redis
+    container_name: cache
+    expose:
+      - 6379
+
