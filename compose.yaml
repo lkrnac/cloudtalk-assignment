@@ -10,14 +10,12 @@ services:
     ports:
       - '5432:5432'
 
-  app:
+  product-service:
     build:
       context: ./product-service
       dockerfile: Dockerfile
-    container_name: nest-docker-postgres
+    container_name: product-service
     environment:
-      - PORT=${PORT}
-#      - REDIS_URL=redis://localhost:6379
       - REDIS_URL=redis://cache
     ports:
       - '3000:3000'
@@ -25,6 +23,20 @@ services:
       - db
     volumes:
       - ./product-service/src:/app/src
+    links:
+      - redis
+
+  review-processing-service:
+    build:
+      context: ./review-processing-service
+      dockerfile: Dockerfile
+    container_name: review-processing-service
+    environment:
+      - REDIS_URL=redis://cache
+    ports:
+      - '3001:3001'
+    volumes:
+      - ./review-processing-service/src:/app/src
     links:
       - redis
 
