@@ -9,7 +9,8 @@ import { Review } from "../reviews/reviews.entity";
 const createTestingProduct = (index: number): Product => ({
   name: "car" + index,
   description: "some description " + index,
-  price: 10000 * index
+  price: 10000 * index,
+  averageRating: index
 } as Product);
 
 describe('ProductController', () => {

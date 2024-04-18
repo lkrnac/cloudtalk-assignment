@@ -15,6 +15,9 @@ export class Product {
     @Column()
     price: number;
 
+    @Column()
+    averageRating: number;
+
     @OneToMany(() => Review, review => review.product)
     reviews: Review[];
 }

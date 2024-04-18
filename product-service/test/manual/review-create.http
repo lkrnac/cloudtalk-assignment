@@ -1,0 +1,10 @@
+POST http://localhost:3000/products/1/reviews
+Content-Type: application/json
+Accept: application/json
+
+{
+  "firstName": "Josh",
+  "lastName": "Long",
+  "reviewText": "lalala",
+  "rating": 5
+}
