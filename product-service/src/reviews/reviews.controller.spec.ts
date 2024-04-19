@@ -127,9 +127,9 @@ describe('ReviewController', () => {
       // THEN
       // setTimeout(() => {
         expect(messages.length).toEqual(3);
-        expect(messages[0]).toEqual({ count: 1, averageRating: 1, change: 4, productId: 1 });
-        expect(messages[1]).toEqual({ count: 2, averageRating: 1, change: 4, productId: 1 });
-        expect(messages[2]).toEqual({ count: 3, averageRating: 1, change: 4, productId: 1 });
+        expect(messages[0]).toEqual({ originalCount: 0, averageRating: 1, countChange: 1, ratingChange: 4, productId: 1 });
+        expect(messages[1]).toEqual({ originalCount: 1, averageRating: 1, countChange: 1, ratingChange: 4, productId: 1 });
+        expect(messages[2]).toEqual({ originalCount: 2, averageRating: 1, countChange: 1, ratingChange: 4, productId: 1 });
       //   done();
       // }, 100);
     });
@@ -236,9 +236,9 @@ describe('ReviewController', () => {
 
       // THEN
       expect(messages.length).toEqual(3);
-      expect(messages[0]).toEqual({ count: 2, averageRating: 1, change: -4, productId: 1 });
-      expect(messages[1]).toEqual({ count: 1, averageRating: 1, change: -4, productId: 1 });
-      expect(messages[2]).toEqual({ count: 0, averageRating: 1, change: -4, productId: 1 });
+      expect(messages[0]).toEqual({ originalCount: 3, averageRating: 1, countChange: -1, ratingChange: -4, productId: 1 });
+      expect(messages[1]).toEqual({ originalCount: 2, averageRating: 1, countChange: -1, ratingChange: -4, productId: 1 });
+      expect(messages[2]).toEqual({ originalCount: 1, averageRating: 1, countChange: -1, ratingChange: -4, productId: 1 });
     });
   });
 
@@ -311,9 +311,9 @@ describe('ReviewController', () => {
 
       // THEN
       expect(messages.length).toEqual(3);
-      expect(messages[0]).toEqual({ count: 3, averageRating: 1, change: -2, productId: 1 });
-      expect(messages[1]).toEqual({ count: 3, averageRating: 1, change: -2, productId: 1 });
-      expect(messages[2]).toEqual({ count: 3, averageRating: 1, change: -2, productId: 1 });
+      expect(messages[0]).toEqual({ originalCount: 3, averageRating: 1, countChange: 0, ratingChange: -2, productId: 1 });
+      expect(messages[1]).toEqual({ originalCount: 3, averageRating: 1, countChange: 0, ratingChange: -2, productId: 1 });
+      expect(messages[2]).toEqual({ originalCount: 3, averageRating: 1, countChange: 0, ratingChange: -2, productId: 1 });
     });
   });
 });

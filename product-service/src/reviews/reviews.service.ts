@@ -7,9 +7,10 @@ import Redis from "ioredis";
 
 export interface CalculationMessage {
     productId: number;
-    count: number;
     averageRating: number;
-    change: number;
+    originalCount: number;
+    countChange: number;
+    ratingChange: number;
 }
 
 @Injectable()
@@ -80,9 +81,10 @@ export class ReviewsService {
         const reviewsCount = await this.readReviewsCount(review.product.id);
         this.client.publish("review-calculation", JSON.stringify({
             productId: review.product.id,
-            count: reviewsCount + countChange,
             averageRating: review.product.averageRating,
-            change: ratingChange
+            originalCount: reviewsCount,
+            countChange,
+            ratingChange
         }))
     }
 }

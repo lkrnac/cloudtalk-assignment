@@ -1,4 +1,4 @@
-POST http://localhost:3000/products/3/reviews
+POST http://localhost:3000/products/4/reviews
 Content-Type: application/json
 Accept: application/json
 

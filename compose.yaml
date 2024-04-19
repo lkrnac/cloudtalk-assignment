@@ -39,6 +39,7 @@ services:
       - ./review-processing-service/src:/app/src
     links:
       - redis
+      - product-service
 
   redis:
     image: redis

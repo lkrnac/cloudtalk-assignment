@@ -11,7 +11,8 @@ export class PrivateProductsController {
     constructor(private readonly productsService: ProductsService) {}
 
     @Put(':id')
-    async updateAverageRating(@Param() id: number, @Body() ratingDto: RatingDto): Promise<Product> {
+    async updateAverageRating(@Param('id') id: number, @Body() ratingDto: RatingDto): Promise<Product> {
+        console.log(ratingDto);
         const product = await this.productsService.readProduct(id);
         return this.productsService.updateProduct({ ...product, averageRating: ratingDto.averageRating });
     }
