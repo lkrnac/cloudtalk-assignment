@@ -31,7 +31,7 @@ export class ReviewsService {
         });
     }
 
-    readReview(productId: number, id: number, readProduct = false): Promise<Review | null> {
+    readReview(productId: number, id: number, readProduct = true): Promise<Review | null> {
         return this.reviewsRepository.findOne({
             where: { id, product: { id: productId }},
             relations: { product: readProduct }
@@ -60,7 +60,7 @@ export class ReviewsService {
         return this.readReviewNullSafe(productId, review.id);
     }
 
-    private async readReviewNullSafe(productId: number, reviewId: number, readProduct = false) {
+    private async readReviewNullSafe(productId: number, reviewId: number, readProduct = true) {
         const existingReview = await this.readReview(productId, reviewId, readProduct);
         if (existingReview === null) {
             throw new NotFoundException();
