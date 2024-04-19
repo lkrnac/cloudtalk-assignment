@@ -31,7 +31,7 @@ export class ReviewsController {
     @Delete(':id')
     async deleteReview(
         @Param('productId') productId: number,
-        @Param() id: number
+        @Param('id') id: number
     ) {
         await this.reviewsService.deleteReview(productId, id);
     }
@@ -39,7 +39,7 @@ export class ReviewsController {
     @Put(':id')
     async updateReview(
         @Param('productId') productId: number,
-        @Param() id: number,
+        @Param('id') id: number,
         @Body() product: Review
     ): Promise<Review> {
         return this.reviewsService.updateReview(productId,{ ...product, id });

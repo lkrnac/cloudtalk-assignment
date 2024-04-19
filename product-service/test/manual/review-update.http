@@ -1,4 +1,4 @@
-POST http://localhost:3000/products/4/reviews
+PUT http://localhost:3000/products/4/reviews/66
 Content-Type: application/json
 Accept: application/json
 
@@ -6,5 +6,5 @@ Accept: application/json
   "firstName": "Josh",
   "lastName": "Long",
   "reviewText": "lalala",
-  "rating": 3
+  "rating": 1
 }
