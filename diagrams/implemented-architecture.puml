@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+database postgres
+database redis
+actor client
+
+[client] <--> [product-service] : REST API
+[product-service] --> [postgres]
+[product-service] --> [redis] : CalculationMessage (pub/sub)
+[redis] --> [review-calculation-service] : CalculationMessage (pub/sub)
+[review-calculation-service] --> [product-service] : PUT Average rating
+
+@enduml
