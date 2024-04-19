@@ -1,0 +1,3 @@
+DELETE http://localhost:3000/products/5/reviews/87
+Content-Type: application/json
+Accept: application/json
